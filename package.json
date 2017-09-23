@@ -1,0 +1,21 @@
+{
+  "name": "zumo-warehouse-app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://boyko-ant@github.com/ZumoWarehouse/App.git"
+  },
+  "author": "Boyko Ant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZumoWarehouse/App/issues"
+  },
+  "homepage": "https://github.com/ZumoWarehouse/App#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "knockout": "^3.4.2"
+  }
+}
