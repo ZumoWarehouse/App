@@ -14,6 +14,8 @@
                     <ul class="nav navbar-nav">
                         <li><a data-bind="click: showBoxes" href="#">Boxes</a></li>
                         <li><a data-bind="click: showItems" href="#">Items</a></li>
+                        <li><a data-bind="click: login" href="#">Login</a></li>
+                        <li><a data-bind="click: logout" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -222,7 +224,8 @@
 
         <script>
 (function(){
-    var mobileApp = new WindowsAzure.MobileServiceClient('http://localhost:3000');
+    var mobileApp = new WindowsAzure.MobileServiceClient('https://zumowarehouse-api-dev.azurewebsites.net');
+    // var mobileApp = new WindowsAzure.MobileServiceClient('http://localhost:3000');
 
     function showPage(pageId) {
         document.getElementById('divListOfBoxes').style.display = 'none';
@@ -255,6 +258,24 @@
                 showPage('divListOfItems');
             });
     };
+
+    vmNavigation.login = function(){
+        mobileApp.login('twitter')
+            .then(function(response){
+                vmNavigation.showBoxes();
+            }, function(error) {
+                alert(error);
+            });
+    }
+
+    vmNavigation.logout = function(){
+        mobileApp.logout()
+            .then(function(response){
+                vmNavigation.showBoxes();
+            }, function(error) {
+                alert(error);
+            });
+    }
 
     ko.applyBindings(vmNavigation, document.getElementById('divNavigation'));
 
